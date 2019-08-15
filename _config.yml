@@ -3,13 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 犬夜叉
+title: InuYasha's Blog
 subtitle: 博客
 description: IT
 keywords: IT,Java，HTML,JavaScript,CSS,Shell
 author: myth
-language: zh_CN
-timezone: GMT+08:00
+language:
+    - zh-CN
+    - en
+    - zh-HK
+    - zh-TW
+timezone: Asia/Shanghai
+favicon: /favicon.ico
+avatar: /favicon.ico
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -20,7 +26,12 @@ permalink_defaults:
 
 # Directory
 source_dir: source
+# 发布路径
 public_dir: target
+# 本地测试1
+#public_dir: D:\JavaProject\blog
+# 本地测试2
+#public_dir: D:\apache-tomcat-8.5.42\webapps\ROOT\blog
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -36,23 +47,23 @@ titlecase: false # Transform title into titlecase
 external_link: false # Open external links in new tab
 filename_case: 1
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace: true
+    enable: true
+    line_number: true
+    auto_detect: false
+    tab_replace: true
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
-  per_page: 10
-  order_by: -date
+    path: ''
+    per_page: 10
+    order_by: -date
 
 # Category & Tag
 default_category: IT
@@ -74,10 +85,14 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-### AlphaDust 也不错
-theme: landscape
+theme: material-x
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+    type: sftp
+    host: inusha.cn
+    port: 2233
+    user: myth
+    privateKey: C:\Users\111\.ssh\id_rsa
+    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
