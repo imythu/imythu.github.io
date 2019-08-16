@@ -96,3 +96,13 @@ deploy:
     user: myth
     privateKey: C:\Users\111\.ssh\id_rsa
     remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
+
+# rss
+feed:
+    type: atom
+    path: atom.xml
+    limit: 25
+    hub:
+    content:
+    content_limit:
+    content_limit_delim: ' '

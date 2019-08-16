@@ -123,67 +123,72 @@ tags: Java
 
 - Zver 具体点的使用方法？
     - 第一，当然是引入依赖了。
-        - 下载 jar 包，下载地址[点击下载](https://imyth.top/zver/zver-1.0.0.2-release.jar?1.0.0.2)。
-        - maven 还没发布，等哪天发布了，下面的就可以在 maven 中用了。<br/>
-            如果实在要用 maven 的话，一种方式是去 GitHub 上把源码下下来本地执行``` mvn clean install -Dmaven.test.skip=true ```安装到本地仓库就可以了。
-            ```
-            <dependency>
-                <groupId>myth</groupId>
-                <artifactId>zver</artifactId>
-                <version>1.0-release</version>
-            </dependency>
-            ```
+        - 下载 jar 包，下载地址[点击下载](https://inusha.cn/zver/zver-1.0.0.2-release.jar?1.0.0.2)。
+        - maven 还没发布，等哪天发布了，下面的就可以在 maven 中用了。
+            如果实在要用 maven 的话，一种方式是去 GitHub 上把源码下下来本地执行 ` mvn clean install -Dmaven.test.skip=true ` 安装到本地仓库就可以了。
+        ```
+        <dependency>
+            <groupId>myth</groupId>
+            <artifactId>zver</artifactId>
+            <version>1.0-release</version>
+        </dependency>
+        ```
+
     - 第二，将原来实现在 if-else 中的代码封装成一个个的方法。
-        - 方法位置。这些方法可以放在任意具有空参数构造方法的public类中。
-        - 修饰符。方法可以是public、private、protected。
-        - 参数。方法的参数可以是任意数量的。
-        
-            - ***但是请注意：*** 这些方法的前 n 个参数类型必须对齐。
-                - 正确例子。这些参数从左到右，依次的类型是相同的。
-                    ```
-                    @MethodIntKey(methodKey = 1)
-                    public void method1() {}
-                    
-                    @MethodIntKey(methodKey = 2)
-                    private void method2(int i, String str) {}
-                    
-                    @MethodIntKey(methodKey = 3)
-                    protected String method3(int j) {}
-                    
-                    @MethodIntKey(methodKey = 4)
-                    public int method4(int k, String str, long emmm) {}
-                    ```
+    - 方法位置。这些方法可以放在任意具有空参数构造方法的public类中。
+    - 修饰符。方法可以是`public`、`private`、`protected`。
+    - 参数。方法的参数可以是任意数量的。
+        -  **但是请注意：** 这些方法的前 n 个参数类型必须对齐。
+            - 正确例子。这些参数从左到右，依次的类型是相同的。
+
+                ```
+                @MethodIntKey(methodKey = 1)
+                public void method1() {}
+                        
+                @MethodIntKey(methodKey = 2)
+                private void method2(int i, String str) {}
+                        
+                @MethodIntKey(methodKey = 3)
+                protected String method3(int j) {}
+                        
+                @MethodIntKey(methodKey = 4)
+                public int method4(int k, String str, long emmm) {}
+                ```
+
                 - 错误例子。第三个方法的参数从左到右，与其他方法参数依次的类型是不同。这就会造成第三个方法执行失败。对其他方法无影响。
-                    ```
-                    @MethodIntKey(methodKey = 1)
-                    public void method1() {}
+                ```
+                @MethodIntKey(methodKey = 1)
+                public void method1() {}
+                
+                @MethodIntKey(methodKey = 2)
+                public int method2(int i, String str) {}
                     
-                    @MethodIntKey(methodKey = 2)
-                    public int method2(int i, String str) {}
-                    
-                    @MethodIntKey(methodKey = 3)
-                    public String method3(String str) {}
-                    
-                    @MethodIntKey(methodKey = 4)
-                    public void method4(int k, String str, long emmm) {}
-                    ```
-    - 第三，加注解。使用``` @MethodIntKey ``` 或者 ``` @MethodStringKey ``` 注解注明此方法的 methodKey。
+                @MethodIntKey(methodKey = 3)
+                public String method3(String str) {}
+                
+                @MethodIntKey(methodKey = 4)
+                public void method4(int k, String str, long emmm) {}
+                ```
+
+    - 第三，加注解。使用 ` @MethodIntKey ` 或者 ` @MethodStringKey ` 注解注明此方法的 methodKey。
         - 关于注解。这两个注解分别用于 methodKey 是 int 和 String 类型的时候。那这个 methodKey 是什么呢？其实就是上面问题引入中的使用的那些常量值。
             - 注解中 methodKey 的值建议像最开始问题引入中的例子那样直接使用常量值，不要使用魔法值。
             ```
             @MethodIntKey(methodKey = ConstantGeneral.A)
             public void method1() {}
-                    
+        
             @MethodIntKey(methodKey = ConstantGeneral.B)
             private void method2(int i, String str) {}
-                    
+        
             @MethodIntKey(methodKey = ConstantGeneral.C)
             protected String method3(int j) {}
-                    
+
             @MethodIntKey(methodKey = ConstantGeneral.D)
             public int method4(int k, String str, long emmm) {}
             ```
+
             再贴一下这个常量类：
+
             ```
             public class ConstantGeneral {
                 /**
@@ -196,19 +201,19 @@ tags: Java
                 public static final int E = 5;
             }
             ```
-    - 最后。``` MethodKeyType ``` 这个参数有两个值 分别是 ``` MethodKeyType.INTEGER ``` 和 ``` MethodKeyType.STRING ```，这个参数是用来标识 methodKey 是int 还是 String 类型的，传错会出现错误。<br/>
-    注意：实例化（new） Zver 实例时，第三个参数只能传递``` MethodKeyType.INTEGER ``` 和 ``` MethodKeyType.STRING ``` 两个中的一个，否则会出错。
+
+    - 最后。` MethodKeyType ` 这个参数有两个值 分别是 ` MethodKeyType.INTEGER ` 和 ` MethodKeyType.STRING `，这个参数是用来标识 methodKey 是int 还是 String 类型的，传错会出现错误。<br/>
+    注意：实例化（new） Zver 实例时，第三个参数只能传递` MethodKeyType.INTEGER ` 和 ` MethodKeyType.STRING ` 两个中的一个，否则会出错。
     ``` 
     // 第一个参数是包含上面定义的方法的类，第二个参数是常量值类，第三个参数表明 methodKey 类型
     Zver zver = new Zver(Main.class, ConstantGeneral.class, MethodKeyType.INTEGER);
-    
-    
+
     // 第一个参数是一个值（即 methodKey），后面的所有参数是可变参数object... args，
     将所有上面定义的所有方法可能用到的参数按照参数最长的方法的参数列表传入进去，
     比如这儿就是按照 method4 的参数列表来传递值得
     zver.invoke(intValue, intValue, stringValue， longValue);
     ```
-    
+
     - 其他：
         - Zver#invoke 方法的返回值是 Object。
             - 在以下情况返回 null。
@@ -219,11 +224,11 @@ tags: Java
         - 如果常量类是枚举类，这个枚举类必须实现 ``` IEnumMethodKeyGetter<T> ``` 接口，泛型 ``` T ``` 只能使用 ``` String ``` 和 ``` Integer ```。并实现接口方法 ``` T getMethodKey() ``` 返回一个当前枚举常量的对应的 methodKey。
 - 参考：
     - [Zver Source GitHub](https://github.com/imythu/zver)
-    - [Zver JavaDoc](https://imyth.top/zver/JavaDoc)
+    - [Zver JavaDoc](https://inusha.cn/zver/JavaDoc)
 
 ## 最后来个大点的字体，如果觉得还行的话能不能去 [GitHub ](https://github.com/imythu/zver)给个 star ？😄
 {% asset_img 16c83e241849997b.gif %}
 
 
 ## 怎么实现的后面看情况是否再写一篇简单说一下。
-## 有 bug 或者啥建议欢迎评论告知。 😄
+## 有 bug 或者啥建议欢迎**掘金**评论告知。 😄
