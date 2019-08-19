@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+_site/
+.sass-cache/
+.jekyll-metadata
+.DS_Store
