@@ -20,7 +20,7 @@ avatar: /favicon.ico
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://inusha.cn/blog
-root: /root
+root: /blog
 # 部署到GitHub
 #root: /
 permalink: :year/:month/:day/:title/
@@ -92,18 +92,18 @@ theme: material-x
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 # ssh 方式
-#deploy:
-#    type: sftp
-#    host: inusha.cn
-#    port: 2233
-#    user: myth
-#    privateKey: C:\Users\111\.ssh\id_rsa
-#    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
-# git 方式
 deploy:
-    type: git
-    repo: https://github.com/imythu/imythu.github.io
-    branch: master
+    type: sftp
+    host: inusha.cn
+    port: 2233
+    user: myth
+    privateKey: C:\Users\111\.ssh\id_rsa
+    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
+# git 方式
+#deploy:
+#    type: git
+#    repo: https://github.com/imythu/imythu.github.io
+#    branch: master
 
 # rss
 feed:

@@ -15,7 +15,7 @@ top: zver
 - 问题引入
     - 首先，我们有如下代码，然后需要根据值来执行不同的逻辑。
 
-    ```
+    ```java
     public class ConstantGeneral {
         // int 类型
         public static final int A = 1;
@@ -33,10 +33,9 @@ top: zver
     }
     ```
 
-
     - 先来看看用 if-else 来处理的话，代码大概是这样的。可以看到，需要写太多相似的代码了。Zver 就是用来解决这个问题的。
     
-    ```
+    ```java
     public class Main {
     public static void main(String[] args) {
         Random random = new Random();
@@ -69,7 +68,7 @@ top: zver
         - 首先，把每个值要执行的逻辑封装成一个个的方法，这些方法可以放在任意类下，方法修饰符可以是public。
         - 封装好的方法如下，这个注解是必须的，后面介绍使用方法的时候再具体解释这个注释，不过这儿看名字大概也能知道一点它的作用。
             - 代码
-            ```
+            ```java
             @MethodIntKey(methodKey = ConstantGeneral.A)
             public void a(int value, String string) {
                 System.out.println("I'm A. int value is" + value + ". " + " calling " + string);
@@ -97,7 +96,7 @@ top: zver
             ```
             - 最后，使用 Zver。
         
-            ```
+            ```java
             public static void main(String[] args) {
                 Random random = new Random();
                 // 1 - 5 随机数
@@ -127,7 +126,7 @@ top: zver
         - 下载 jar 包，下载地址[点击下载](https://inusha.cn/zver/zver-1.0.0.2-release.jar?1.0.0.2)。
         - maven 还没发布，等哪天发布了，下面的就可以在 maven 中用了。
             如果实在要用 maven 的话，一种方式是去 GitHub 上把源码下下来本地执行 ` mvn clean install -Dmaven.test.skip=true ` 安装到本地仓库就可以了。
-        ```
+        ```xml
         <dependency>
             <groupId>myth</groupId>
             <artifactId>zver</artifactId>
@@ -142,7 +141,7 @@ top: zver
         -  **但是请注意：** 这些方法的前 n 个参数类型必须对齐。
             - 正确例子。这些参数从左到右，依次的类型是相同的。
 
-                ```
+                ```java
                 @MethodIntKey(methodKey = 1)
                 public void method1() {}
                         
@@ -157,7 +156,7 @@ top: zver
                 ```
 
                 - 错误例子。第三个方法的参数从左到右，与其他方法参数依次的类型是不同。这就会造成第三个方法执行失败。对其他方法无影响。
-                ```
+                ```java
                 @MethodIntKey(methodKey = 1)
                 public void method1() {}
                 
@@ -174,7 +173,7 @@ top: zver
     - 第三，加注解。使用 ` @MethodIntKey ` 或者 ` @MethodStringKey ` 注解注明此方法的 methodKey。
         - 关于注解。这两个注解分别用于 methodKey 是 int 和 String 类型的时候。那这个 methodKey 是什么呢？其实就是上面问题引入中的使用的那些常量值。
             - 注解中 methodKey 的值建议像最开始问题引入中的例子那样直接使用常量值，不要使用魔法值。
-            ```
+            ```java
             @MethodIntKey(methodKey = ConstantGeneral.A)
             public void method1() {}
         
@@ -190,7 +189,7 @@ top: zver
 
             再贴一下这个常量类：
 
-            ```
+            ```java
             public class ConstantGeneral {
                 /**
                 * int 类型
@@ -205,7 +204,7 @@ top: zver
 
     - 最后。` MethodKeyType ` 这个参数有两个值 分别是 ` MethodKeyType.INTEGER ` 和 ` MethodKeyType.STRING `，这个参数是用来标识 methodKey 是int 还是 String 类型的，传错会出现错误。<br/>
     注意：实例化（new） Zver 实例时，第三个参数只能传递` MethodKeyType.INTEGER ` 和 ` MethodKeyType.STRING ` 两个中的一个，否则会出错。
-    ``` 
+    ```java
     // 第一个参数是包含上面定义的方法的类，第二个参数是常量值类，第三个参数表明 methodKey 类型
     Zver zver = new Zver(Main.class, ConstantGeneral.class, MethodKeyType.INTEGER);
 
