@@ -1,7 +1,6 @@
 ---
 title: Hello World
 tags: [必看, Java, 程序员标配]
-top: 必备Hello World
 ---
 ### HelloWorld
 <fancybox>

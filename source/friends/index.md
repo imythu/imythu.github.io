@@ -1,6 +1,7 @@
 ---
 layout: links     # 必须
 title: 我的朋友们   # 可选，这是友链页的标题
+---
 <!-- more -->
 links:
   - group: 技术大佬
@@ -25,4 +26,3 @@ links:
       tags:     # 标签
       - 标签1
       - 标签2
----

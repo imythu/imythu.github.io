@@ -19,7 +19,7 @@ avatar: /favicon.ico
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://inusha.cn
+url: http://inusha.cn/blog
 root: /blog
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -100,7 +100,7 @@ deploy:
 # rss
 feed:
     type: atom
-    path: atom.xml
+    path: /blog/atom.xml
     limit: 25
     hub:
     content:

@@ -1,7 +1,8 @@
 ---
-title: zver
+title: 如何消除代码中大量的 if-else
 date: 2019-08-15 09:23:07
 tags: Java
+top: zver
 ---
 # 两行代码代替几十上百(无上限)的 if-else 代码
 <!-- more -->
