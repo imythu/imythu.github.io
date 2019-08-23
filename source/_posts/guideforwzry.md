@@ -17,6 +17,7 @@ tags: 王者荣耀
 - 穿透
 - 暴击
 - 暴击效果
+
 ## 法术装备
 <fancybox>
 {% asset_img haidaomao.jpg %}
