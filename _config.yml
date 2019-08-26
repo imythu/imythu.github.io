@@ -97,7 +97,7 @@ permalink_defaults:
 #    host: inusha.cn
 #    port: 22
 #    user: myth
-#    privateKey: C:\Users\111\.ssh\id_rsa
+#    privateKey: C:\Users\myth\.ssh\id_rsa
 #    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
 # git 方式
 deploy:
