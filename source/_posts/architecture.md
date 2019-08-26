@@ -9,7 +9,7 @@ tags: [Java, 架构师, 学习路线]
 ---
 ## 腾讯课堂鲁班学院给出的 Java 学习路线。
 
-{% asset_img 508-bigskin-2.jpg %}
+{% asset_img haidaomao.jpg %}
 <!-- more -->
 
 ## 如果觉得这儿太小了，可以点击这儿 [网页地址](https://inusha.cn/architecture.html) 切换到大网页看
