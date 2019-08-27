@@ -60,7 +60,7 @@ cover:
   height: half      # full（默认值）: 首页封面占据整个第一屏幕，其他页面占半个屏幕高度， half: 所有页面都封面都只占半个屏幕高度
   title: "InuYasha's Blog"
   # logo: assets/logo.png    # logo和title只显示一个，若同时设置，则只显示logo
-  search_placeholder: '假的搜索'
+  search_placeholder: '输入后按回车搜索'
   # 主页封面菜单
   features:
     - name: 博文
