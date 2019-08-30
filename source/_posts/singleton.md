@@ -123,6 +123,6 @@ tags: [Java, 单例, 原理]
 
 ### 如有错误，请发邮箱 imythu@foxmail.com 指正。
 
-### 转载请注明出处
+- 转载请注明出处
 - 作者：myth
 - [博客地址](https://blog.inusha.cn/2019/08/26/singleton/)：https://blog.inusha.cn/2019/08/26/singleton/
