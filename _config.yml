@@ -95,9 +95,9 @@ permalink_defaults:
 #deploy:
 #    type: sftp
 #    host: inusha.cn
-#    port: 22
+#    port: 2233
 #    user: myth
-#    privateKey: C:\Users\myth\.ssh\id_rsa
+#    privateKey: E:\puttygen\privatekey.ppk
 #    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
 # git 方式
 deploy:
