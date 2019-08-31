@@ -21,7 +21,7 @@ avatar: /favicon.ico
 # Directory
 source_dir: source
 # 发布路径
-public_dir: target
+public_dir: target_git
 # 本地测试1
 #public_dir: D:\JavaProject\blog
 # 本地测试2
@@ -32,6 +32,8 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+    - "CNAME"
+    - "blog/**/**"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -83,8 +85,7 @@ theme: material-x
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://inusha.cn/blog
-#root: /blog
+url: https://imythu.github.io
 # 部署到GitHub
 root: /
 permalink: :year/:month/:day/:title/
@@ -92,18 +93,19 @@ permalink_defaults:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 # ssh 方式
-#deploy:
-#    type: sftp
-#    host: inusha.cn
-#    port: 2233
-#    user: myth
-#    privateKey: E:\puttygen\privatekey.ppk
-#    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
-# git 方式
 deploy:
-    type: git
-    repo: git@github.com:imythu/imythu.github.io.git
-    branch: master
+    #  - type: sftp
+    #    host: inusha.cn
+    #    port: 2233
+    #    user: myth
+    #    privateKey: C:\Users\myth\.ssh\puttygen\puttygen_private.ppk
+    #    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
+
+    - type: git
+      repo: git@github.com:imythu/imythu.github.io.git
+      branch: master
+# git 方式
+#deploy:
 
 # rss
 feed:

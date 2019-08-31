@@ -6,5 +6,6 @@ node_modules/
 public/
 .deploy*/
 .idea
-**/target
+target_git
+target_sftp
 **/*.iml
