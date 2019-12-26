@@ -98,8 +98,8 @@ deploy:
     host: inusha.cn
     port: 2233
     user: myth
-    privateKey: C:\Users\myth\.ssh\puttygen\puttygen_private.ppk
-    remotePath: /home/myth/soft/apache-tomcat-8.5.43/webapps/ROOT/blog
+    privateKey: C:\Users\user\.ssh\private.ppk
+    remotePath: /home/user/soft/apache-tomcat-9.0.26/webapps/ROOT/blog/
 
 #  - type: git
 #    repo: git@github.com:imythu/imythu.github.io.git
