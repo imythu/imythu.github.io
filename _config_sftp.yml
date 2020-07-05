@@ -88,7 +88,7 @@ url: https://inusha.cn/blog
 root: /blog
 # 部署到GitHub
 #root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -98,7 +98,7 @@ deploy:
     host: inusha.cn
     port: 2233
     user: myth
-    privateKey: C:\Users\user\.ssh\private.ppk
+    privateKey: C:\Users\imythu\.ssh\ssh_private.ppk
     remotePath: /home/user/soft/apache-tomcat-9.0.26/webapps/ROOT/blog/
 
 #  - type: git
