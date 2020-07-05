@@ -98,7 +98,7 @@ deploy:
     host: inusha.cn
     port: 2233
     user: myth
-    privateKey: C:\Users\imythu\.ssh\ssh_private.ppk
+    privateKey: C:\Users\imyth\.ssh\ssh_private.ppk
     remotePath: /home/user/soft/apache-tomcat-9.0.26/webapps/ROOT/blog/
 
 #  - type: git
